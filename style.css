@@ -1864,3 +1864,11 @@ footer {
     transform: scale(1.1);
     transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
+
+@media (max-width: 992px) {
+  .hero {
+    height: auto;            /* Let height adjust to content */
+    padding-top: 120px;      /* Keep space for the navbar */
+    padding-bottom: 60px;    /* Add some breathing room below */
+  }
+}
