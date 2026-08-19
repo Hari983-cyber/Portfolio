@@ -15,6 +15,33 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+// Dark Mode Toggle — dark is the default
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    document.body.classList.remove('dark-mode');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+} else {
+    document.body.classList.add('dark-mode');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Scroll progress bar
+const scrollProgress = document.getElementById('scrollProgress');
+if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = (scrolled / total * 100) + '%';
+    }, { passive: true });
+}
+
 // Smooth Scrolling for all links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -83,6 +110,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animated Counter
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const counter = entry.target;
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 1800;
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, duration / steps);
+            counterObserver.unobserve(counter);
+        });
+    }, { threshold: 0.6 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // Pipeline Stage Entrance Animations
+    const pipeStages = document.querySelectorAll('.pipe-stage');
+    if (pipeStages.length > 0) {
+        const pipeObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                pipeStages.forEach(stage => {
+                    const delay = parseInt(stage.dataset.delay || 0);
+                    setTimeout(() => stage.classList.add('visible'), delay);
+                });
+                pipeObserver.disconnect();
+            }
+        }, { threshold: 0.15 });
+        pipeObserver.observe(document.querySelector('.pipeline-flow'));
+    }
+
+    // Terminal Log Line Animations
+    const termLines = document.querySelectorAll('.term-line');
+    if (termLines.length > 0) {
+        const termObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                termLines.forEach((line, i) => {
+                    setTimeout(() => line.classList.add('visible'), 400 + i * 350);
+                });
+                termObserver.disconnect();
+            }
+        }, { threshold: 0.2 });
+        termObserver.observe(document.querySelector('.terminal-window'));
+    }
 
     // Form submission handling
     const contactForm = document.getElementById('contactForm');

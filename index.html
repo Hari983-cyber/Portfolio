@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
     <!-- Particle Background -->
     <div id="particles-js"></div>
     
@@ -25,10 +25,12 @@
 
     <!-- Navigation -->
     <nav class="navbar">
+        <div class="navbar-top-line"></div>
         <div class="container">
             <div class="logo">
                 <a href="#home" class="hvr-float">HC<span>.</span></a>
                 <div class="logo-dot"></div>
+                <span class="logo-tag">DevOps</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="hvr-underline-from-center">Home</a></li>
@@ -37,11 +39,18 @@
                 <li><a href="#projects" class="hvr-underline-from-center">Projects</a></li>
                 <li><a href="#experience" class="hvr-underline-from-center">Experience</a></li>
                 <li><a href="#contact" class="hvr-underline-from-center">Contact</a></li>
+                <li><a href="#tools" class="hvr-underline-from-center">Tools</a></li>
             </ul>
-            <div class="menu-toggle">
-                <div class="hamburger"></div>
+            <div class="nav-right">
+                <div class="theme-toggle" id="themeToggle" title="Switch to Light Mode">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                </div>
             </div>
         </div>
+        <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
 
     <!-- Hero Section -->
@@ -49,13 +58,20 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h4 class="animate__animated animate__fadeIn">Hello, I'm</h4>
+                    <div class="hero-badge animate__animated animate__fadeIn">
+                        <span class="status-dot"></span>
+                        <span>Open to Work</span>
+                    </div>
+                    <h4 class="animate__animated animate__fadeIn animate__delay-1s">Hello, I'm</h4>
                     <h1 class="animate__animated animate__fadeIn animate__delay-1s">Hari Chanda</h1>
                     <h2 class="animate__animated animate__fadeIn animate__delay-1s">DevOps <span class="txt-rotate" data-period="2000" data-rotate='[ "Engineer", "Architect", "Automation Expert", "Cloud Specialist" ]'></span></h2>
                     <p class="animate__animated animate__fadeIn animate__delay-2s">Building bridges between development and operations through automation and cloud solutions.</p>
                     <div class="hero-buttons animate__animated animate__fadeIn animate__delay-2s">
                         <a href="#contact" class="btn primary hvr-sweep-to-right">Contact Me</a>
                         <a href="#projects" class="btn secondary hvr-sweep-to-left">My Work</a>
+                        <a href="Hari_DevOps_CV.pdf" class="btn outline hvr-buzz-out" id="downloadCV" download="Hari_Chanda_CV.pdf">
+                            <i class="fas fa-file-download"></i> Download CV
+                        </a>
                     </div>
                     <div class="hero-social animate__animated animate__fadeIn animate__delay-3s">
                         <a href="https://linkedin.com/in/hari-chanda" target="_blank" class="hvr-bob"><i class="fab fa-linkedin-in"></i></a>
@@ -74,6 +90,34 @@
                             <i class="fab fa-linux hvr-buzz"></i>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <h3><span class="counter" data-target="3">0</span>+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3><span class="counter" data-target="15">0</span>+</h3>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-infinity"></i></div>
+                    <h3><span class="counter" data-target="500">0</span>+</h3>
+                    <p>Deployments Automated</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3><span class="counter" data-target="99">0</span>.9%</h3>
+                    <p>Avg. Uptime Achieved</p>
                 </div>
             </div>
         </div>
@@ -130,6 +174,55 @@
                             <p><a href="https://linkedin.com/in/hari-chanda" target="_blank">linkedin.com/in/hari-chanda</a></p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I <span>Do</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">My core DevOps competencies</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fas fa-infinity"></i></div>
+                    <h3>CI/CD Pipeline Design</h3>
+                    <p>Building robust, automated delivery pipelines that eliminate manual bottlenecks and accelerate time to market.</p>
+                    <div class="service-tags"><span>Azure Pipelines</span><span>Jenkins</span><span>GitHub Actions</span></div>
+                </div>
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fab fa-docker"></i></div>
+                    <h3>Containerization &amp; Orchestration</h3>
+                    <p>Packaging applications into containers and orchestrating them at scale for maximum reliability and efficiency.</p>
+                    <div class="service-tags"><span>Docker</span><span>Kubernetes</span><span>Amazon EKS</span></div>
+                </div>
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Designing and managing scalable, cost-effective cloud architectures across AWS and Azure platforms.</p>
+                    <div class="service-tags"><span>AWS</span><span>Azure</span><span>Terraform</span></div>
+                </div>
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <h3>DevSecOps</h3>
+                    <p>Embedding security at every pipeline stage — shift-left to catch vulnerabilities early and ship with confidence.</p>
+                    <div class="service-tags"><span>Veracode</span><span>IAM</span><span>Privado</span></div>
+                </div>
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                    <h3>Monitoring &amp; Observability</h3>
+                    <p>Implementing end-to-end monitoring for proactive detection, real-time alerting, and rapid incident response.</p>
+                    <div class="service-tags"><span>Prometheus</span><span>Grafana</span><span>CloudWatch</span></div>
+                </div>
+                <div class="service-card hvr-float">
+                    <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Automating infrastructure provisioning for consistent, repeatable, and fully version-controlled environments.</p>
+                    <div class="service-tags"><span>Terraform</span><span>Ansible</span><span>ARM Templates</span></div>
                 </div>
             </div>
         </div>
@@ -215,6 +308,85 @@
                     </div>
                     <span class="skill-percent">87%</span>
                     <div class="skill-wave"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section id="pipeline" class="pipeline-section section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My DevOps <span>Pipeline</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Automated workflow from code to production</p>
+            </div>
+            <div class="pipeline-note">
+                <i class="fas fa-bolt"></i> Stages <strong>Privado Scan</strong> &amp; <strong>Build &amp; Release</strong> run in <strong>parallel</strong> on separate agents
+            </div>
+            <div class="pipeline-flow">
+                <div class="pipe-stage" data-delay="0">
+                    <div class="pipe-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="pipe-label">Checkout</div>
+                    <div class="pipe-sub">self + cicd_template + templates</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage" data-delay="200">
+                    <div class="pipe-icon"><i class="fas fa-tag"></i></div>
+                    <div class="pipe-label">Versioning</div>
+                    <div class="pipe-sub">Set version from .csproj</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage" data-delay="400">
+                    <div class="pipe-icon"><i class="fas fa-cube"></i></div>
+                    <div class="pipe-label">NuGet Restore</div>
+                    <div class="pipe-sub">HP_Diagnostics, Nexus, DTF-BLs</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage" data-delay="600">
+                    <div class="pipe-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="pipe-label">.NET Build</div>
+                    <div class="pipe-sub">x86 / x64 / AnyCPU &mdash; Release</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage" data-delay="800">
+                    <div class="pipe-icon"><i class="fas fa-lock"></i></div>
+                    <div class="pipe-label">HPSS Sign</div>
+                    <div class="pipe-sub">Binaries signed via SecureSign</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage" data-delay="1000">
+                    <div class="pipe-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="pipe-label">Privado Scan</div>
+                    <div class="pipe-sub">AI privacy scan (parallel)</div>
+                    <div class="pipe-connector"></div>
+                </div>
+                <div class="pipe-stage last" data-delay="1200">
+                    <div class="pipe-icon"><i class="fas fa-box-open"></i></div>
+                    <div class="pipe-label">Pack &amp; Publish</div>
+                    <div class="pipe-sub">NuGet &rarr; HP_Diagnostics &amp; Nexus</div>
+                </div>
+            </div>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">pipeline.log &mdash; Production Deployment</span>
+                </div>
+                <div class="terminal-body" id="terminalLog">
+                    <div class="term-line"><span class="term-time">[00:01]</span> <span class="term-ok">&#10003;</span> Pipeline triggered on branch <span class="term-branch">dev_hari</span> &mdash; Stages running in <span class="term-hash">parallel</span></div>
+                    <div class="term-line"><span class="term-time">[00:02]</span> <span class="term-ok">&#10003;</span> [Stage: RunPrivadoScan] Privado AI scan started on <span class="term-branch">codeway-aws-linux2023</span></div>
+                    <div class="term-line"><span class="term-time">[00:03]</span> <span class="term-ok">&#10003;</span> [Stage: Build_Deploy_Release] Job: Versioning &mdash; cicd_template &amp; self checked out</div>
+                    <div class="term-line"><span class="term-time">[00:05]</span> <span class="term-ok">&#10003;</span> Version set &mdash; <span class="term-hash">1.4.2.$(Build.BuildNumber)</span> written to .csproj</div>
+                    <div class="term-line"><span class="term-time">[00:07]</span> <span class="term-ok">&#10003;</span> Job: HPCodeWay_Build &mdash; .NET 9, Java 21, NuGet 6.0 installed on <span class="term-branch">codeway-aws-win2022</span></div>
+                    <div class="term-line"><span class="term-time">[00:09]</span> <span class="term-ok">&#10003;</span> NuGet Restore completed &mdash; HP_Diagnostics, Nexus, DTF-BLs feeds authenticated</div>
+                    <div class="term-line"><span class="term-time">[00:13]</span> <span class="term-ok">&#10003;</span> DotNet Build (x86 / x64 / AnyCPU) &mdash; Release config &mdash; all targets succeeded</div>
+                    <div class="term-line"><span class="term-time">[00:16]</span> <span class="term-ok">&#10003;</span> HPSS Signing &mdash; Binaries signed via <span class="term-hash">SecureSign.jar</span> &mdash; CDX project</div>
+                    <div class="term-line"><span class="term-time">[00:18]</span> <span class="term-ok">&#10003;</span> NuGet Pack completed &mdash; <span class="term-hash">HP.Diagnostics.CDX.1.4.2.nupkg</span> staged</div>
+                    <div class="term-line"><span class="term-time">[00:19]</span> <span class="term-ok">&#10003;</span> Pushed to <span class="term-branch">HP_Diagnostics</span> feed &amp; <span class="term-branch">Nexus</span> repository</div>
+                    <div class="term-line"><span class="term-time">[00:20]</span> <span class="term-ok">&#10003;</span> [Stage: RunPrivadoScan] Scan complete &mdash; 0 privacy violations on <span class="term-branch">dev_hari</span></div>
+                    <div class="term-line blink-cursor"><span class="term-time">[00:22]</span> <span class="term-done">&#9654;</span> All stages passed &mdash; Duration: 22m 14s &mdash; Build: <span class="term-hash">SUCCEEDED</span></div>
                 </div>
             </div>
         </div>
@@ -396,6 +568,35 @@
         </div>
     </section>
 
+    <!-- Tools Section -->
+    <section id="tools" class="tools-section section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tech <span>Stack</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Tools and technologies I work with daily</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card hvr-float" title="Amazon Web Services"><div class="tool-icon"><i class="fab fa-aws"></i></div><span>AWS</span></div>
+                <div class="tool-card hvr-float" title="Microsoft Azure"><div class="tool-icon"><i class="fab fa-microsoft"></i></div><span>Azure</span></div>
+                <div class="tool-card hvr-float" title="Docker"><div class="tool-icon"><i class="fab fa-docker"></i></div><span>Docker</span></div>
+                <div class="tool-card hvr-float" title="Kubernetes"><div class="tool-icon"><i class="fas fa-dharmachakra"></i></div><span>Kubernetes</span></div>
+                <div class="tool-card hvr-float" title="Linux"><div class="tool-icon"><i class="fab fa-linux"></i></div><span>Linux</span></div>
+                <div class="tool-card hvr-float" title="Git"><div class="tool-icon"><i class="fab fa-git-alt"></i></div><span>Git</span></div>
+                <div class="tool-card hvr-float" title="GitHub"><div class="tool-icon"><i class="fab fa-github"></i></div><span>GitHub</span></div>
+                <div class="tool-card hvr-float" title="Python"><div class="tool-icon"><i class="fab fa-python"></i></div><span>Python</span></div>
+                <div class="tool-card hvr-float" title="Terraform"><div class="tool-icon"><i class="fas fa-layer-group"></i></div><span>Terraform</span></div>
+                <div class="tool-card hvr-float" title="Ansible"><div class="tool-icon"><i class="fas fa-cogs"></i></div><span>Ansible</span></div>
+                <div class="tool-card hvr-float" title="Jenkins"><div class="tool-icon"><i class="fab fa-jenkins"></i></div><span>Jenkins</span></div>
+                <div class="tool-card hvr-float" title="Prometheus"><div class="tool-icon"><i class="fas fa-fire-alt"></i></div><span>Prometheus</span></div>
+                <div class="tool-card hvr-float" title="Grafana"><div class="tool-icon"><i class="fas fa-chart-bar"></i></div><span>Grafana</span></div>
+                <div class="tool-card hvr-float" title="Nexus Repository"><div class="tool-icon"><i class="fas fa-box"></i></div><span>Nexus</span></div>
+                <div class="tool-card hvr-float" title="Azure Artifacts"><div class="tool-icon"><i class="fas fa-archive"></i></div><span>Azure Artifacts</span></div>
+                <div class="tool-card hvr-float" title="Veracode Security"><div class="tool-icon"><i class="fas fa-shield-alt"></i></div><span>Veracode</span></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
@@ -456,19 +657,54 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#home" class="hvr-float">HC<span>.</span></a>
-                    <p>DevOps Engineer & Cloud Specialist</p>
-                </div>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/hari-chanda" target="_blank" class="social-link linkedin hvr-bob"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Hari983-cyber" target="_blank" class="social-link github hvr-bob"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/hari_chanda1?igsh=MXNoNHU3dWZ3YmhoMw==" target="_blank" class="social-link instagram hvr-bob"><i class="fab fa-instagram"></i></a>
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M985.66,62.83C906.67,42,823.78,11,743.84,4.19c-82.26-7.34-168.06-6.33-250.45.39-57.84,4.73-114,12.07-172,18.86A600.21,600.21,0,0,1,0,17.35V80H1200V65.8C1132.19,78.92,1055.71,71.31,985.66,62.83Z"></path>
+            </svg>
+        </div>
+        <div class="footer-body">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand">
+                        <a href="#home" class="footer-logo hvr-float">HC<span>.</span></a>
+                        <p>DevOps Engineer &amp; Cloud Specialist building scalable infrastructure and automated pipelines that ship faster and safer.</p>
+                        <div class="footer-avail">
+                            <span class="status-dot"></span>
+                            <span>Open to Work</span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                            <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                            <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                            <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <div class="footer-contact">
+                            <a href="mailto:dassbreyadas0@gmail.com"><i class="fas fa-envelope"></i> dassbreyadas0@gmail.com</a>
+                            <a href="tel:+916002941300"><i class="fas fa-phone"></i> +91-6002941300</a>
+                            <a href="#"><i class="fas fa-map-marker-alt"></i> Assam, India</a>
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://linkedin.com/in/hari-chanda" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Hari983-cyber" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/hari_chanda1?igsh=MXNoNHU3dWZ3YmhoMw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p class="copyright">&copy; <span id="year"></span> Hari Chanda. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">&copy; <span id="year"></span> Hari Chanda &mdash; All rights reserved.</p>
+                <p class="footer-made">Built as <i class="fas fa-code"></i> with <i class="fas fa-heart"></i></p>
+            </div>
         </div>
     </footer>
 
